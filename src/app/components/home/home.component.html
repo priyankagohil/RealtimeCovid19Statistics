@@ -2,12 +2,12 @@
 <div class="jumbotron bg-info row justify-content-center mt-5">
     <div class="col-md-9 text-center" style="color: white;">
 
-        <h1 class="display-4">COVID-19 Cases</h1>
+        <h1 class="display-5">COVID-19 STATISTICS</h1>
         <hr>
-        <p>Life is fun. But life is also busy. There's a million different things you could be doing.
-             But what matters is <u>what</u> you do. We created <b><i>Todo List</i></b> 
-             to help you make sense of all of your opportunities and live that life that matters
-              most to you. Your new organized life awaits.</p>
+        <p class="text-justify intro h5">Coronavirus disease (COVID-19) is a infectious disease which was unknown before the outbreak
+           began in Wuhan, China, in December 2019. COVID-19 is now a pandemic affecting many countries
+            globally. This website is build for study purpose by using open source data maintained by 
+           <a target="_blank" class="text-light stretched-link" href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data"> Johns Hopkins University</a>.</p>
     </div>
     
 </div>
@@ -16,49 +16,58 @@
 [totalRecovered] = 'totalRecovered' ></app-dashboard-card>
 
 <hr>
+<div class="stats">
+<div class="display-4 text-center">Visual Statistics</div>
+<br>
 <div class="ui form">
-    <div class="inline fields">
-      <label for="fruit">Select Case Type:</label>
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" id = "confirmed" #confirmed (click)='updateChart(confirmed)' name="casetype" 
-          checked="" value="confirmed" tabindex="0" class="hidden">
-          <label for="confirmed">Confirmed</label>
+    <div class="inline fields ">
+      
+      <div class="field col-3">
+        <div class="ui buttons button" >
+          <input id = "confirmed" #confirmed (click)='updateChart(confirmed)' name="casetype" 
+          checked="" value="confirmed" tabindex="0" >
+          <label class="btn btn-lg btn-secondary button" for="confirmed"><h3>Confirmed</h3></label>
         </div>
       </div>
       
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" id = "deaths" #deaths (click)='updateChart(deaths)' name="casetype" 
+      <div class="field col-3">
+        <div class="ui buttons button">
+          <input  id = "deaths" #deaths (click)='updateChart(deaths)' name="casetype" 
           tabindex="0" value="deaths" class="hidden">
-          <label for="deaths">Deaths</label>
+          <label class="btn btn-lg btn-secondary button" for="deaths"><h3>Deaths</h3></label>
         </div>
       </div>
 
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" id = "active" #active (click)='updateChart(active)' name="casetype" 
+      <div class="field col-3">
+        <div class="ui buttons button">
+          <input  id = "active" #active (click)='updateChart(active)' name="casetype" 
           tabindex="0" value="active" class="hidden">
-          <label for="active">Active</label>
+          <label class="btn btn-lg btn-secondary button" for="active"><h3>Active</h3></label>
         </div>
       </div>
 
-      <div class="field">
-        <div class="ui radio checkbox">
-          <input type="radio" id = "recovered" #recovered (click)='updateChart(recovered)' name="casetype" 
+      <div class="field col-3 ">
+        <div class="ui buttons button">
+          <input  id = "recovered" #recovered (click)='updateChart(recovered)' name="casetype" 
           tabindex="0" value="recovered" class="hidden">
-          <label for="recovered">Recovered</label>
+          <label class="btn btn-secondary btn-lg button" for="recovered"><h3>Recovered</h3></label>
         </div>
-      </div>
-      
+      </div>  
      
       
     </div>
 </div>
-
-<google-chart [type]="chart.PieChart" [data]='dataTable' [height]='chart.height'
+<div class="row">
+  <div class="col">
+    <google-chart [type]="chart.PieChart" [data]='dataTable' [height]='chart.height1'
+    [options]='chart.options' style="width: 100%;"></google-chart>
+  </div>
+  <div class="col">
+    <google-chart [type]="chart.ColumnChart" [data]='dataTable' [height]='chart.height2'
 [options]='chart.options' style="width: 100%;"></google-chart>
-<google-chart [type]="chart.ColumnChart" [data]='dataTable' [height]='chart.height'
-[options]='chart.options' style="width: 100%;"></google-chart>
+  </div>
+</div>
 
+
+</div>
 </div>

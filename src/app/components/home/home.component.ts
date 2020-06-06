@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
     PieChart : "PieChart",
     ColumnChart : "ColumnChart",
     LineChart : "LineChart",
-    height : 500,
+    height1 : 500,
+    height2 : 400,
     options : {
       animation :{
         duration : 100,

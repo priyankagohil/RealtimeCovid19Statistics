@@ -21,19 +21,20 @@
     <app-dashboard-card [totalConfirmed] = 'totalConfirmed' [totalDeaths] = 'totalDeaths' 
     [totalRecovered] = 'totalRecovered' ></app-dashboard-card>
 
-
+<br>
+<br>    
     <div class="row">
         <div class="col-7">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
-                    <tr>
-                        <th>Sr no.</th>
-                        <th>Date</th>
-                        <th>Cases</th>
+                    <tr class="bg-info text-light ">
+                        <th class="font-weight-bold">Sr no.</th>
+                        <th class="font-weight-bold">Date</th>
+                        <th class="font-weight-bold">Cases</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let sc of selectedCountryData; index as i">
+                    <tr class="table-info" *ngFor="let sc of selectedCountryData; index as i">
                         <td>{{ i+1 }}</td>
                         <td>{{ sc.date| date}}</td>
                         <td>{{ sc.cases }}</td>
