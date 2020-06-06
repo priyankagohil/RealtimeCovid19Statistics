@@ -1,0 +1,20 @@
+
+  p {font-size: 16px;}
+  img {
+    border-radius: 60%;
+  }
+  
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  }
+  
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+.fancy{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif
+}

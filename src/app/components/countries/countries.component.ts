@@ -67,7 +67,7 @@ export class CountriesComponent implements OnInit {
 
   updateValues(country : string){
 
-    console.log(country)
+    //console.log(country)
     this.data.forEach(cs =>{
       if(cs.country == country){
         this.totalConfirmed = cs.confirmed;
@@ -89,7 +89,7 @@ export class CountriesComponent implements OnInit {
     this.selectedCountryData.forEach(cs =>{
       this.dataTable.push([ cs.date, cs.cases])
     })  
-    console.log(this.dataTable);  
+    //console.log(this.dataTable);  
   }
 
 }

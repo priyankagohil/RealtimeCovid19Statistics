@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
             cs.country, value
       ])
     })
-    console.log(this.dataTable);    
+    //console.log(this.dataTable);    
 
   }
 
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       {
         next : (result) =>{
-          console.log(result);
+          //console.log(result);
           this.globalData = result;
           result.forEach(cs =>{
             if(!Number.isNaN(cs.confirmed)){
@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
   }
 
   updateChart(input : HTMLInputElement){
-    console.log(input.value);
+    //console.log(input.value);
     this.initChart(input.value);
 
   }
