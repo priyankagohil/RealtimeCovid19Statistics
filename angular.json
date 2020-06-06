@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "RealtimeCovidCases"
+    }
+  },
+  "defaultProject": "RealtimeCovidCases",
+  "cli": {
+    "analytics": false
+  }
 }
