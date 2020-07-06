@@ -24,8 +24,13 @@
 <br>
 <br>    
     <div class="row">
-        <div class="col-7">
-            <table class="table table-hover">
+        <div class="col-lg-5">
+            <google-chart [type]="chart.LineChart" [data]='dataTable' [height]='chart.height' 
+            style="width: 100%;" [options]='chart.options' [title]="chart.myTitle" ></google-chart>
+        </div>
+        
+        <div class="col-lg-7">
+            <table class="table table-hover scrolldown">
                 <thead>
                     <tr class="bg-info text-light ">
                         <th class="font-weight-bold">Sr no.</th>
@@ -43,10 +48,7 @@
             </table>
         </div>
 
-        <div class="col-5">
-            <google-chart [type]="chart.LineChart" [data]='dataTable' [height]='chart.height' 
-            style="width: 100%;" [options]='chart.options' [title]="chart.myTitle" ></google-chart>
-        </div>
+        
     </div>
  
 </div>

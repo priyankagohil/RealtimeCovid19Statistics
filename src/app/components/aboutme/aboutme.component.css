@@ -2,11 +2,12 @@
   p {font-size: 16px;}
   img {
     border-radius: 60%;
+    border: 3px solid white;
   }
   
   .margin {margin-bottom: 45px;}
   .bg-1 { 
-    background-color: #1abc9c; /* Green */
+    background-color: #ea8685; 
     color: #ffffff;
   }
   

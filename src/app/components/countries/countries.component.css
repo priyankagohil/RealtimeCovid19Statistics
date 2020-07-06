@@ -1,0 +1,26 @@
+table.scrolldown { 
+    width: 100%; 
+      
+} 
+
+table.scrolldown tbody, table.scrolldown thead { 
+    display: block; 
+}
+
+table.scrolldown tbody { 
+              
+    /* Set the height of table body */ 
+    height: 400px;  
+    width: 100%; 
+      
+    /* Set vertical scroll */ 
+    overflow-y: auto; 
+      
+    /* Hide the horizontal scroll */ 
+    overflow-x: hidden;  
+} 
+
+tbody td, thead th { 
+    width : 200px; 
+   
+} 

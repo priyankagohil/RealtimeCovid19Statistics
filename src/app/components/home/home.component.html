@@ -22,7 +22,7 @@
 <div class="ui form">
     <div class="inline fields ">
       
-      <div class="field col-3">
+      <div class="field col-lg-3">
         <div class="ui buttons button" >
           <input id = "confirmed" #confirmed (click)='updateChart(confirmed)' name="casetype" 
           checked="" value="confirmed" tabindex="0" >
@@ -30,7 +30,7 @@
         </div>
       </div>
       
-      <div class="field col-3">
+      <div class="field col-lg-3">
         <div class="ui buttons button">
           <input  id = "deaths" #deaths (click)='updateChart(deaths)' name="casetype" 
           tabindex="0" value="deaths" class="hidden">
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="field col-3">
+      <div class="field col-lg-3">
         <div class="ui buttons button">
           <input  id = "active" #active (click)='updateChart(active)' name="casetype" 
           tabindex="0" value="active" class="hidden">
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <div class="field col-3 ">
+      <div class="field col-lg-3 ">
         <div class="ui buttons button">
           <input  id = "recovered" #recovered (click)='updateChart(recovered)' name="casetype" 
           tabindex="0" value="recovered" class="hidden">
@@ -58,11 +58,11 @@
     </div>
 </div>
 <div class="row">
-  <div class="col">
+  <div class="col-lg-6">
     <google-chart [type]="chart.PieChart" [data]='dataTable' [height]='chart.height1'
     [options]='chart.options' style="width: 100%;"></google-chart>
   </div>
-  <div class="col">
+  <div class="col-lg-6">
     <google-chart [type]="chart.ColumnChart" [data]='dataTable' [height]='chart.height2'
 [options]='chart.options' style="width: 100%;"></google-chart>
   </div>
