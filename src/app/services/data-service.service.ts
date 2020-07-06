@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators'
 import { GlobalDataSummary } from '../models/global-data';
 import { DatewiseData } from '../models/datewise-data';
 
@@ -9,14 +9,38 @@ import { DatewiseData } from '../models/datewise-data';
 })
 export class DataServiceService {
 
-  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-05-2020.csv' ;
   private datewiseDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
-  constructor(private http : HttpClient) { }
+  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-05-2020.csv' ;
+  // private baseUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/' ;
+  // private globalDataUrl = ``;
+  // private extension = '.csv';
+  // month;
+  // day;
+  // year;
+
+  getdate(date: number){
+    if(date < 10){
+      return '0'+date;
+    }
+    return date;
+  }
+  
+  constructor(private http : HttpClient) {
+    // let now = new Date();
+    // this.month = now.getMonth() + 1;
+    // this.year = now.getFullYear();
+    // this.day = now.getDate();
+
+    //   this.globalDataUrl = `${this.baseUrl}${this.getdate(this.month)}-${this.getdate(this.day)}-${this.year}${this.extension}`;
+      
+      //console.log(this.globalDataUrl);
+
+   }
 
   getDatewiseData(){
     return this.http.get(this.datewiseDataUrl, {responseType: 'text'})
     .pipe(map(result => {
-        // let data: DatewiseData  [] = [];
+        // let data: any = [];
         let rows = result.split('\n');
         //console.log(rows);
         let mainData = {};        
@@ -82,7 +106,18 @@ export class DataServiceService {
         
         return <GlobalDataSummary[]>Object.values(raw);
       }
-      )
-    )
-  }
+      ),
+      // catchError(( err:HttpErrorResponse )=>{
+      //   if( err.status == 404 ){
+      //     let now = new Date()
+      //     now.setDate(now.getDate() - 1);
+      //     this.month = now.getMonth();
+      //     this.day = now.getDate();
+      //     this.year = now.getFullYear();
+      //     this.globalDataUrl = `${this.baseUrl}${this.getdate(this.month)}-${this.getdate(this.day)}-${this.year}${this.extension}`;
+      //     return this.getGlobalData();
+      //     // console.log(this.globalDataUrl)
+      //   }
+      // })
+    )}
 }
